@@ -58,7 +58,7 @@ Example:
 */
 
 type MysqlConfig struct {
-	databaseName string
+	DatabaseName string
 }
 // Get a mysql configuration.
 func GetMySQLConfig(key string) MysqlConfig {
@@ -66,7 +66,7 @@ func GetMySQLConfig(key string) MysqlConfig {
 		// Get mysql information
 		if mysqlInfo := mysqlInfos[key].(map[string]interface{}); mysqlInfo != nil {
 			return MysqlConfig{
-				databaseName: mysqlInfo["data_source_name"].(string),
+				DatabaseName: mysqlInfo["data_source_name"].(string),
 			}
 		}
 	}
@@ -88,9 +88,9 @@ Example:
 */
 
 type RedisConfig struct {
-	name string
-	address string
-	password string
+	Name string
+	Address string
+	Password string
 }
 
 // Get a redis configuration.
@@ -104,12 +104,12 @@ func GetRedisConfig() RedisConfig {
 		}
 
 		redisConfig := RedisConfig{
-			name: redisInfo["name"].(string),
-			address: redisInfo["address"].(string),
+			Name: redisInfo["name"].(string),
+			Address: redisInfo["address"].(string),
 		}
 
 		if redisInfo["password"] != nil {
-			redisConfig.password = redisInfo["password"].(string)
+			redisConfig.Password = fmt.Sprintf("%v", redisInfo["password"])
 		}
 
 		return redisConfig

@@ -4,9 +4,11 @@ package mysql
 import (
 	"errors"
 	"database/sql"
+	_ "github.com/go-sql-driver/mysql"
 	"sync"
 	"fmt"
-	"api-gbss/configer"
+	"bilibili-rear-end/configer"
+	"time"
 )
 
 // Defined database name.
@@ -32,15 +34,14 @@ type DBWorker struct {
 	*sql.DB
 }
 
-// Init databases.
+// Init mysql.
 func InitDB() {
 	once.Do(func() {
 		for _, databaseName := range DBList {
-			db, err := OpenDB(configer.MySqlConfig().DataSourceName)
-			// Open failure, termination procedure
-			if err != nil {
-				panic(err)
-			}
+			db := OpenDB(configer.GetMySQLConfig(databaseName).DatabaseName)
+
+			// set the maximum amount of time a connection may be reused
+			db.SetConnMaxLifetime(time.Second * 10)
 
 			DBWorkers[databaseName] = &DBWorker{db}
 			fmt.Printf("%v db create success \n", databaseName)
@@ -49,55 +50,45 @@ func InitDB() {
 }
 
 // Open mysql DB.
-func OpenDB(dataSourceName string) (*sql.DB, error) {
+func OpenDB(dataSourceName string) *sql.DB {
 	// Open doesn't open a connection
 	db, err := sql.Open("mysql", dataSourceName)
 	if err != nil {
-		panic(err.Error())
+		panic(fmt.Sprintf("open %v fail: %v", dataSourceName, err.Error()))
 	}
 
 	// Validate DSN data
 	err = db.Ping()
 	if err != nil {
-		panic(err.Error())
+		panic(fmt.Sprintf("ping %v fail: %v", dataSourceName, err.Error()))
 	}
 
-	return db, err
+	return db
 }
 
-// 创建db连接.
-func createDB(databaseName string) (*sql.DB, error) {
-	// sql.Open返回的sql.DB对象是协程并发安全的
-	db, err := sql.Open("mysql", databaseName)
-	// 打开错误
-	if err != nil {
-		return nil, errors.New(fmt.Sprintf("open %v fail: %v", databaseName, err))
-	}
 
-	// 验证连接, 连接错误
-	if err := db.Ping(); err != nil {
-		return nil, errors.New(fmt.Sprintf("ping %v fail: %v", databaseName, err))
-	}
 
-	return db, nil
-}
 
-// 获取指定DB.
-func GetDB(key string) *DBWorker {
+// Get the specified database connection.
+func getDB(key string) *DBWorker {
 	return DBWorkers[key]
 }
 
+// Get member connection.
 func MemberDB() *DBWorker {
-	return GetDB(member)
+	return getDB(member)
 }
 
-// 查询一条数据.
-func (db *DBWorker) FetchRow(sqlstr string, args ...interface{}) (map[string] string, error) {
+
+
+// Query a piece of data.
+func (db *DBWorker) FetchRow(sqlStr string, args ...interface{}) (map[string] string, error) {
+	// validate db
 	if db == nil {
 		return nil, dbNilErr
 	}
 
-	stmt, err := db.Prepare(sqlstr)
+	stmt, err := db.Prepare(sqlStr)
 	if err != nil {
 		return nil, err
 	}
@@ -145,11 +136,15 @@ func (db *DBWorker) FetchRow(sqlstr string, args ...interface{}) (map[string] st
 
 		break	// 只取第一条就退出
 	}
+
+
+
+
 	return ret, nil
 }
 
-// 查询一组数据.
-func (db *DBWorker) FetchRows(sqlstr string, args ...interface{}) (*[]map[string] string, error) {
+// Query a set of data.
+func (db *DBWorker) FetchRows(sqlStr string, args ...interface{}) (*[]map[string] string, error) {
 	if db == nil {
 		return nil, dbNilErr
 	}
@@ -205,7 +200,9 @@ func (db *DBWorker) FetchRows(sqlstr string, args ...interface{}) (*[]map[string
 	return &ret, nil
 }
 
-// 插入.
+
+
+// Insert data.
 func Insert(db *sql.DB, sqlstr string, args ...interface{}) (int64, error){
 	if db == nil {
 		return 0, dbNilErr
@@ -227,4 +224,25 @@ func Insert(db *sql.DB, sqlstr string, args ...interface{}) (int64, error){
 	return 0, nil
 }
 
-// 修改.
+// Change data.
+
+
+
+
+
+// Returns the query results as a *Rows
+func (db *DBWorker) getRows(sqlStr string, args ...interface{}) (*sql.Rows, error) {
+	stmt, err := db.Prepare(sqlStr)
+	if err != nil {
+		return nil, err
+	}
+
+	defer stmt.Close()
+
+	rows, err := stmt.Query(args)
+	if err != nil {
+		return nil, err
+	}
+
+	return rows, nil
+}
