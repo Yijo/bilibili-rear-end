@@ -1,0 +1,21 @@
+mysql:
+  bi_member:
+      # production:
+      data_source_name: root:123456@tcp(127.0.0.1:3306)/bi_member?charset=utf8
+#      # test
+#      data_source_name: root:123456@tcp(127.0.0.1:3306)/bi_member?charset=utf8
+#      # release
+#      data_source_name: root:123456@tcp(127.0.0.1:3306)/bi_member?charset=utf8
+  bi_user:
+      # production:
+      data_source_name: root:123456@tcp(127.0.0.1:3306)/bi_member?charset=utf8
+#      # test
+#      data_source_name: root:123456@tcp(127.0.0.1:3306)/bi_member?charset=utf8
+#      # release
+#      data_source_name: root:123456@tcp(127.0.0.1:3306)/bi_member?charset=utf8
+
+
+redis:
+  name: personal_redis
+  address: 127.0.0.1:6379
+  password:
