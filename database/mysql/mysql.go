@@ -19,11 +19,9 @@ const (
 // Defined db error.
 var dbNilErr = errors.New("db is nil")
 
-
 var (
 	// Single
 	once sync.Once
-
 	// Database list
 	DBList = []string{member}
 	DBWorkers = make(map[string]*DBWorker, len(DBList))
@@ -68,7 +66,6 @@ func OpenDB(dataSourceName string) *sql.DB {
 
 
 
-
 // Get the specified database connection.
 func getDB(key string) *DBWorker {
 	return DBWorkers[key]
@@ -83,6 +80,131 @@ func MemberDB() *DBWorker {
 
 // Query a piece of data.
 func (db *DBWorker) FetchRow(sqlStr string, args ...interface{}) (map[string] string, error) {
+	rows, err := db.getRows(sqlStr, args)
+	if err != nil {
+		return nil, err
+	}
+
+	defer rows.Close()
+
+	// return an array of column name
+	columns, err := rows.Columns()
+	if err != nil {
+		return nil, err
+	}
+
+	// create an array of receive values
+	values := make([]sql.RawBytes, len(columns))
+	scanArgs := make([]interface{}, len(values))
+	ret := make(map[string]string, len(scanArgs))
+
+	// assign the value points of the subscript specified by values to the subscript corresponding to scanArgs
+	for i := range values {
+		scanArgs[i] = &values[i]
+	}
+
+	for rows.Next() {
+		err := rows.Scan(scanArgs...)
+		if err != nil {
+			return nil, err
+		}
+
+		var value string
+
+		for i, column := range values {
+			if column == nil {
+				value = ""
+			} else {
+				value = string(column)
+			}
+			ret[columns[i]] = value
+		}
+
+		break	// exit only by taking the first one
+	}
+	return ret, nil
+}
+
+// Query a set of data.
+func (db *DBWorker) FetchRows(sqlStr string, args ...interface{}) ([]map[string]string, error) {
+	rows, err := db.getRows(sqlStr, args)
+	if err != nil {
+		return nil, err
+	}
+
+	defer rows.Close()
+
+
+	columns, err := rows.Columns()
+	if err != nil {
+		return nil, err
+	}
+
+	values := make([]sql.RawBytes, len(columns))
+	scanArgs := make([]interface{}, len(values))
+	ret := make([]map[string]string, len(scanArgs))
+
+	for i := range values {
+		scanArgs[i] = &values[i]
+	}
+
+	for rows.Next() {
+		err := rows.Scan(scanArgs...)
+		if err != nil {
+			return nil, err
+		}
+
+		var value string
+
+		temp := make(map[string]string, len(values))
+		for i, column := range values {
+			if column == nil {
+				value = ""
+			} else {
+				value = string(column)
+			}
+			temp[columns[i]] = value
+		}
+		ret = append(ret, temp)
+	}
+	return ret, nil
+}
+
+
+// Insert data.
+func (db *DBWorker) Insert(sqlStr string, args ...interface{}) (int64, error) {
+	if db == nil {
+		return 0, dbNilErr
+	}
+
+	result, err := db.Exec(sqlStr, args)
+	if err != nil {
+		return 0, err
+	}
+
+	return result.LastInsertId()
+}
+
+// Change data.
+func (db *DBWorker) ExecD(sqlStr string, args ...interface{}) (int64, error) {
+	if db == nil {
+		return 0, dbNilErr
+	}
+
+	result, err := db.Exec(sqlStr, args)
+	if err != nil {
+		return 0, err
+	}
+
+	return result.RowsAffected()
+}
+
+
+
+
+// Returns the query results as a *Rows
+func (db *DBWorker) getRows(sqlStr string, args ...interface{}) (*sql.Rows, error) {
+
 	// validate db
 	if db == nil {
 		return nil, dbNilErr
@@ -94,150 +216,6 @@ func (db *DBWorker) FetchRow(sqlStr string, args ...interface{}) (map[string] st
 	}
 	defer stmt.Close()
 
-	rows, err := stmt.Query(args)
-	if err != nil {
-		return nil, err
-	}
-	defer rows.Close()
-
-	columns, err := rows.Columns()
-	if err != nil {
-		return nil, err
-	}
-
-	// 创建接收value的数组
-	values := make([]sql.RawBytes, len(columns))
-	scanArgs := make([]interface{}, len(values))
-	ret := make(map[string]string, len(scanArgs))
-
-	// 将values指定下标的value指针赋值给scanArgs对应的下标当中
-	for i := range values {
-		scanArgs[i] = &values[i]
-	}
-
-	// 遍历row
-	for rows.Next() {
-		// 对scanArgs进行赋值，响应的也改变了values
-		err := rows.Scan(scanArgs...)
-		if err != nil {
-			return nil, err
-		}
-
-		var value string
-
-		for i, column := range  values {
-			if column == nil {
-				value = ""
-			} else {
-				value = string(column)
-			}
-			ret[columns[i]] = value
-		}
-
-		break	// 只取第一条就退出
-	}
-
-
-
-
-	return ret, nil
-}
-
-// Query a set of data.
-func (db *DBWorker) FetchRows(sqlStr string, args ...interface{}) (*[]map[string] string, error) {
-	if db == nil {
-		return nil, dbNilErr
-	}
-
-	stmt, err := db.Prepare(sqlstr)
-	if err != nil {
-		return nil, err
-	}
-	defer stmt.Close()
-
-	rows, err := stmt.Query(args)
-	if err != nil {
-		return nil, err
-	}
-	defer rows.Close()
-
-	columns, err := rows.Columns()
-	if err != nil {
-		return nil, err
-	}
-
-	// 创建接收value的数组
-	values := make([]sql.RawBytes, len(columns))
-	scanArgs := make([]interface{}, len(values))
-	ret := make([]map[string]string, len(scanArgs))
-
-	// 将values指定下标的value指针赋值给scanArgs对应的下标当中
-	for i := range values {
-		scanArgs[i] = &values[i]
-	}
-
-	// 遍历row
-	for rows.Next() {
-		// 对scanArgs进行赋值，响应的也改变了values
-		err := rows.Scan(scanArgs...)
-		if err != nil {
-			return nil, err
-		}
-
-		var value string
-
-		temp := make(map[string]string, len(scanArgs))
-		for i, column := range  values {
-			if column == nil {
-				value = ""
-			} else {
-				value = string(column)
-			}
-			temp[columns[i]] = value
-		}
-		ret = append(ret, temp)
-	}
-	return &ret, nil
-}
-
-
-
-// Insert data.
-func Insert(db *sql.DB, sqlstr string, args ...interface{}) (int64, error){
-	if db == nil {
-		return 0, dbNilErr
-	}
-
-	stmt, err := db.Prepare(sqlstr)
-	if err != nil {
-		return 0, err
-	}
-	defer stmt.Close()
-
-	rows, err := stmt.Query(args)
-	if err != nil {
-		return 0, err
-	}
-	defer rows.Close()
-
-
-	return 0, nil
-}
-
-// Change data.
-
-
-
-
-
-// Returns the query results as a *Rows
-func (db *DBWorker) getRows(sqlStr string, args ...interface{}) (*sql.Rows, error) {
-	stmt, err := db.Prepare(sqlStr)
-	if err != nil {
-		return nil, err
-	}
-
-	defer stmt.Close()
 
 	rows, err := stmt.Query(args)
 	if err != nil {

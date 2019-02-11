@@ -2,8 +2,8 @@ package network
 
 type Code int
 
-// 定义返回Code.
+// Define return code.
 const (
-	FAILED  Code = -1   // 成功
-	SUCCESS Code = iota // 失败
+	FAILURE Code = -1   // default failure code
+	SUCCESS Code = iota // default success code
 )

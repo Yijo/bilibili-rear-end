@@ -37,10 +37,11 @@ func TestMemberDB(t *testing.T) {
 }
 
 
-// Query a piece of data.
+// Query a piece of data test.
 func TestFetchRow(t *testing.T) {
 	configer.InitConfig()
 	InitDB()
+
 
 }
 
@@ -50,7 +51,14 @@ func TestFetchRows(t *testing.T) {
 	InitDB()
 }
 
+// Insert data test.
 func TestInsert(t *testing.T) {
+	configer.InitConfig()
+	InitDB()
+}
+
+// Change data test.
+func TestExecD(t *testing.T) {
 	configer.InitConfig()
 	InitDB()
 }

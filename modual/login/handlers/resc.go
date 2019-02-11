@@ -1,9 +1,11 @@
 package handlers
 
-type failure int
+import "bilibili-rear-end/network"
+
+type Resc int
 
 const (
-	parameterFailure failure = iota		// 参数错误
+	parameterFailure Resc = iota		// 参数错误
 
 	nickNameWrongFormate	// 昵称格式错误
 
@@ -18,7 +20,7 @@ const (
 	signOutFailure // 登出失败
 )
 
-func (this failure) Message() string{
+func (this Resc) Message() string {
 	switch this {
 	case parameterFailure:
 		return "参数异常"
@@ -40,7 +42,7 @@ func (this failure) Message() string{
 	return ""
 }
 
-func (this failure) DisplayMsg() string{
+func (this Resc) DisplayMsg() string {
 	switch this {
 	case parameterFailure:
 		return "参数异常"
@@ -61,4 +63,12 @@ func (this failure) DisplayMsg() string{
 	}
 
 	return ""
+}
+
+func (this Resc) Code() network.Code {
+	switch this {
+
+	}
+
+	return network.FAILURE
 }

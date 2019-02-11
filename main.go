@@ -6,14 +6,15 @@ import (
 	"fmt"
 	"bilibili-rear-end/middleware"
 	"bilibili-rear-end/configer"
-	//"bilibili-rear-end/database/mysql"
+	"net/http"
+	"time"
 )
 
 func main() {
 	configer.InitConfig() // Init config
 
-
 	router := gin.Default()
+	severListen(router)	// start server listen
 
 	router.Use(middleware.MiddleWare())	// open global middleware, use with routes
 
@@ -26,8 +27,20 @@ func main() {
 
 	router.Run()	// start routes, default port 8080
 
-	//mysql.OpenDB()
+}
 
-	//defer mysql.
+// Server listen.
+func severListen(router *gin.Engine) {
+	s := &http.Server{
+		Addr: ":8080",
+		Handler: router,
+		ReadTimeout: 10 * time.Second,
+		WriteTimeout: 10 * time.Second,
+		MaxHeaderBytes: 1 << 20,
+	}
 
+	err := s.ListenAndServe()
+	if err != nil {
+		panic(err.Error())
+	}
 }
