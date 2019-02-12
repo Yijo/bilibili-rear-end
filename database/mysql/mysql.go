@@ -182,8 +182,31 @@ func (db *DBWorker) Insert(sqlStr string, args ...interface{}) (int64, error) {
 		return 0, err
 	}
 
-	return result.LastInsertId()
+	return result.RowsAffected()
 }
+
+// Insert data.
+func (db *DBWorker) InsertTx(tx *sql.Tx, sqlStr string, args ...interface{}) (int64, error) {
+
+	if db == nil {
+		return 0, dbNilErr
+	}
+
+	result, err := db.Exec(sqlStr, args)
+	if err != nil {
+		tx.Rollback()
+		return 0, err
+	}
+
+	num, err := result.RowsAffected()
+	if err != nil {
+		tx.Rollback()
+		return 0, err
+	}
+
+	return num, nil
+}
+
 
 // Change data.
 func (db *DBWorker) ExecD(sqlStr string, args ...interface{}) (int64, error) {
@@ -199,7 +222,26 @@ func (db *DBWorker) ExecD(sqlStr string, args ...interface{}) (int64, error) {
 	return result.RowsAffected()
 }
 
+// Change data.
+func (db *DBWorker) ExecDTx(tx *sql.Tx, sqlStr string, args ...interface{}) (int64, error) {
+	if db == nil {
+		return 0, dbNilErr
+	}
 
+	result, err := db.Exec(sqlStr, args)
+	if err != nil {
+		tx.Rollback()
+		return 0, err
+	}
+
+	num, err := result.RowsAffected()
+	if err != nil {
+		tx.Rollback()
+		return 0, err
+	}
+
+	return num, nil
+}
 
 
 // Returns the query results as a *Rows

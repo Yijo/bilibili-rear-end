@@ -5,52 +5,20 @@ import (
 	"net/http"
 	"bilibili-rear-end/tools/regex"
 	"bilibili-rear-end/network"
-	"bilibili-rear-end/modual/login/models"
 )
 
-type registerStyle int
-
-const (
-	phoneStyle = iota
-	emailStyle
-)
-
-// Register an account with an email.
-func RegisterMailHandler(ctx *gin.Context) {
-
-	registerAccount(ctx, emailStyle)
+// Get register captcha.
+func GetRegisterCaptchaHandler(ctx *gin.Context) {
+	style := ctx.Query("style")
+	if style == "" {
+		network.Failure(http.StatusBadRequest, parameterFailure).AppendMessage("style is nil.").Response(ctx)
+	}
 
 }
 
-// Register an account with an phone.
-func RegisterPhoneHandler(ctx *gin.Context) {
-	registerAccount(ctx, phoneStyle)
-}
- 
-// Register an account.
-func registerAccount(ctx *gin.Context, style registerStyle) {
+// Get captcha.
+func GetCaptcha(ctx *gin.Context, style int) {
 
-	// validate nickname
-	nickName := ctx.PostForm("nickname")
-	if nickName == "" {
-		network.Failure(http.StatusBadRequest, parameterFailure).AppendMessage("nickname is nil.").Response(ctx)
-	}
-
-	result := regex.IsNickName(nickName)
-	if !result {
-		network.Failure(http.StatusInternalServerError, nickNameWrongFormate).Response(ctx)
-	}
-
-
-	// password
-	password := ctx.PostForm("password")
-	if password == "" {
-		network.Failure(http.StatusBadRequest, parameterFailure).AppendMessage("password is nil.").Response(ctx)
-	}
-
-
-	// account
-	var account string
 	switch style {
 	case phoneStyle:
 		// validate phone

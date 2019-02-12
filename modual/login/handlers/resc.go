@@ -67,7 +67,12 @@ func (this Resc) DisplayMsg() string {
 
 func (this Resc) Code() network.Code {
 	switch this {
-
+	case nickNameWrongFormate:
+		return -10001
+	case phoneWrongFormate:
+		return -10002
+	case emailWrongFormate:
+		return -10003
 	}
 
 	return network.FAILURE

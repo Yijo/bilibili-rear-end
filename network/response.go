@@ -71,3 +71,20 @@ func (adapter *ResponseAdapter) Response(c *gin.Context) {
 	// for the time being, only return JSON first, do not judge Accept and ContentType
 	c.JSON(adapter.status, adapter)
 }
+
+
+// Add message description.
+func (adapter *ResponseAdapter)AppendMessage(str string) *ResponseAdapter {
+	if adapter.Message == "" {
+		return adapter.SetMessage(str)
+	} else {
+		adapter.Message = adapter.Message + ", " + str
+		return adapter
+	}
+}
+
+// Set message description.
+func (adapter *ResponseAdapter)SetMessage(str string) *ResponseAdapter {
+	adapter.Message = str
+	return adapter
+}

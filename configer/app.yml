@@ -16,6 +16,6 @@ mysql:
 
 
 redis:
-  name: personal_redis
+  DB: personal_redis
   address: 127.0.0.1:6379
   password:

@@ -88,7 +88,7 @@ Example:
 */
 
 type RedisConfig struct {
-	Name string
+	DB string
 	Address string
 	Password string
 }
@@ -104,7 +104,7 @@ func GetRedisConfig() RedisConfig {
 		}
 
 		redisConfig := RedisConfig{
-			Name: redisInfo["name"].(string),
+			DB: redisInfo["DB"].(string),
 			Address: redisInfo["address"].(string),
 		}
 

@@ -16,5 +16,8 @@ func SubRouters(r *gin.Engine) {
 
 		// 手机注册
 		router.POST("/register/phone", handlers.RegisterPhoneHandler)
+
+		// 获取注册验证码.
+		router.GET("/register/captcha", handlers.GetRegisterCaptchaHandler)
 	}
 }
