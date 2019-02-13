@@ -12,9 +12,10 @@ type Redis struct {
 	pool *redis.Pool
 }
 
+
 var (
 	redisOnce sync.Once
-
+	// Single.
 	redisInstance *Redis
 )
 
@@ -91,7 +92,48 @@ func GetInstance() *Redis {
 	return  redisInstance
 }
 
-
+// Close releases the resources used by the pool.
 func (r *Redis) closePool() {
+	r.pool.Close()
+}
 
+// Do sends a command to the server and returns the received reply.
+func (r *Redis) Do(commandName string, args ...interface{}) (reply interface{}, err error) {
+	conn := r.pool.Get()
+	defer conn.Close()
+	return conn.Do(commandName, args)
+}
+
+// Send writes the command to the client's output buffer.
+func (r *Redis) Send(commandName string, args ...interface{}) error {
+	conn := r.pool.Get()
+	defer conn.Close()
+	return conn.Send(commandName, args)
+}
+
+// Flush flushes the output buffer to the Redis server.
+func (r *Redis) Flush() error {
+	conn := r.pool.Get()
+	defer conn.Close()
+	return conn.Flush()
+}
+
+// Receive receives a single reply from the Redis server.
+func (r *Redis) Receive() (reply interface{}, err error) {
+	conn := r.pool.Get()
+	defer conn.Close()
+	return conn.Receive()
+}
+
+// Close closes the connection.
+func (r *Redis) Close() error {
+	conn := r.pool.Get()
+	return conn.Close()
+}
+
+// Err returns a non-nil value when the connection is not usable.
+func (r *Redis) Err() error {
+	conn := r.pool.Get()
+	defer conn.Close()
+	return conn.Err()
 }
