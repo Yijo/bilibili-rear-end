@@ -4,7 +4,6 @@
     <list default="true" id="75a0a078-70ee-4a86-9ec8-b82107d290f0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/database/nosql/redis/redis.go" afterPath="$PROJECT_DIR$/database/nosql/redis/redis.go" />
-      <change beforePath="$PROJECT_DIR$/database/nosql/redis/redis_test.go" afterPath="$PROJECT_DIR$/database/nosql/redis/redis_test.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,31 +14,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="registerHandler.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="registerHandler.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/modual/login/handlers/registerHandler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+            <state relative-caret-position="0">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="redis.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="redis.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/nosql/redis/redis.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="106" column="57" lean-forward="true" selection-start-line="106" selection-start-column="57" selection-end-line="106" selection-end-column="57" />
+            <state relative-caret-position="250">
+              <caret line="133" column="19" lean-forward="true" selection-start-line="133" selection-start-column="19" selection-end-line="133" selection-end-column="19" />
               <folding>
-                <element signature="e#15#118#0" expanded="true" />
-                <element signature="e#131#159#0" expanded="false" />
-                <element signature="e#162#224#0" expanded="false" />
-                <element signature="e#243#294#0" expanded="false" />
+                <element signature="e#15#125#0" expanded="true" />
+                <element signature="e#138#166#0" expanded="false" />
+                <element signature="e#169#231#0" expanded="false" />
                 <element signature="n#!!block;n#GetRedisConfig#0" expanded="false" />
                 <element signature="n#!!block;n#Init#0" expanded="false" />
-                <element signature="e#865#893#0" expanded="false" />
-                <element signature="e#929#1054#0" expanded="false" />
-                <element signature="e#1119#1165#0" expanded="false" />
+                <element signature="e#872#900#0" expanded="false" />
+                <element signature="e#936#1061#0" expanded="false" />
+                <element signature="e#1126#1172#0" expanded="false" />
                 <element signature="n#!!block;n#GetInstance#0" expanded="false" />
                 <element signature="n#!!block;n#closePool#0" expanded="false" />
                 <element signature="n#!!block;n#Do#0" expanded="false" />
@@ -53,23 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="redis_test.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/nosql/redis/redis_test.go">
+      <file leaf-file-name="reply.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../github.com/garyburd/redigo/redis/reply.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding>
-                <element signature="e#15#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="redis.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../github.com/garyburd/redigo/redis/redis.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="29" column="4" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
+            <state relative-caret-position="277">
+              <caret line="382" column="28" lean-forward="true" selection-start-line="382" selection-start-column="28" selection-end-line="382" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -158,8 +144,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1675" />
-    <option name="y" value="123" />
+    <option name="x" value="1640" />
+    <option name="y" value="23" />
     <option name="width" value="1240" />
     <option name="height" value="777" />
   </component>
@@ -181,7 +167,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -246,7 +232,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -388,10 +374,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1675" y="123" width="1240" height="777" extended-state="0" />
+    <frame x="1640" y="23" width="1240" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2612688" sideWeight="0.49043062" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2654424" sideWeight="0.49043062" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32844576" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -418,13 +404,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/local/Cellar/go/1.11.2/libexec/src/context/context.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="205" column="5" lean-forward="false" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/nosql/mongoDB/mongoDB_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -574,9 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-          <folding>
-            <element signature="e#14#175#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -643,19 +619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
-          <folding>
-            <element signature="e#279#411#0" expanded="false" />
-            <element signature="e#438#457#0" expanded="false" />
-            <element signature="n#!!block;n#OpenDB#0" expanded="false" />
-            <element signature="n#!!block;n#getDB#0" expanded="false" />
-            <element signature="n#!!block;n#MemberDB#0" expanded="false" />
-            <element signature="n#!!block;n#FetchRow#0" expanded="false" />
-            <element signature="n#!!block;n#FetchRows#0" expanded="false" />
-            <element signature="e#3077#3191#0" expanded="false" />
-            <element signature="n#!!block;n#ExecD#0" expanded="false" />
-            <element signature="n#!!block;n#ExecDTx#0" expanded="false" />
-            <element signature="n#!!block;n#getRows#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -708,9 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="46" />
-          <folding>
-            <element signature="e#17#32#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -734,7 +694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="106" column="29" lean-forward="false" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -742,7 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -754,21 +712,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/modual/login/handlers/registerHandler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/nosql/redis/redis_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#15#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -776,24 +723,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
           <caret line="29" column="4" lean-forward="false" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/nosql/redis/redis.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="106" column="57" lean-forward="true" selection-start-line="106" selection-start-column="57" selection-end-line="106" selection-end-column="57" />
+        <state relative-caret-position="250">
+          <caret line="133" column="19" lean-forward="true" selection-start-line="133" selection-start-column="19" selection-end-line="133" selection-end-column="19" />
           <folding>
-            <element signature="e#15#118#0" expanded="true" />
-            <element signature="e#131#159#0" expanded="false" />
-            <element signature="e#162#224#0" expanded="false" />
-            <element signature="e#243#294#0" expanded="false" />
+            <element signature="e#15#125#0" expanded="true" />
+            <element signature="e#138#166#0" expanded="false" />
+            <element signature="e#169#231#0" expanded="false" />
             <element signature="n#!!block;n#GetRedisConfig#0" expanded="false" />
             <element signature="n#!!block;n#Init#0" expanded="false" />
-            <element signature="e#865#893#0" expanded="false" />
-            <element signature="e#929#1054#0" expanded="false" />
-            <element signature="e#1119#1165#0" expanded="false" />
+            <element signature="e#872#900#0" expanded="false" />
+            <element signature="e#936#1061#0" expanded="false" />
+            <element signature="e#1126#1172#0" expanded="false" />
             <element signature="n#!!block;n#GetInstance#0" expanded="false" />
             <element signature="n#!!block;n#closePool#0" expanded="false" />
             <element signature="n#!!block;n#Do#0" expanded="false" />
@@ -803,6 +748,22 @@
             <element signature="n#!!block;n#Close#0" expanded="false" />
             <element signature="n#!!block;n#Err#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/garyburd/redigo/redis/reply.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="382" column="28" lean-forward="true" selection-start-line="382" selection-start-column="28" selection-end-line="382" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modual/login/handlers/registerHandler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

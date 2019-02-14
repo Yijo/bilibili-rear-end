@@ -6,6 +6,7 @@ import (
 	"sync"
 	"github.com/garyburd/redigo/redis"
 	"time"
+	"fmt"
 )
 
 type Redis struct {
@@ -96,6 +97,43 @@ func GetInstance() *Redis {
 func (r *Redis) closePool() {
 	r.pool.Close()
 }
+
+
+// Get the value of the interface type returned by the specified key.
+func (r *Redis) Get(key string) (interface{}, error) {
+	return r.Do("GET", key)
+}
+
+// Get the value of the string type returned by the specified key.
+func (r *Redis) GetString(key string) (string, error) {
+	return redis.String(r.Get(key))
+}
+
+// Get the value of the int type returned by the specified key.
+func (r *Redis) GetInt(key string) (int, error) {
+	return redis.Int(r.Get(key))
+}
+
+// Get the value of the int64 type returned by the specified key.
+func (r *Redis) GetInt64(key string) (int64, error) {
+	return redis.Int64(r.Get(key))
+}
+
+// Get the value of the bool type returned by the specified key.
+func (r *Redis) GetBool(key string) (bool, error) {
+	return redis.Bool(r.Get(key))
+}
+
+// Get the value of the float64 type returned by the specified key.
+func (r *Redis) GetFloat64(key string) (float64, error) {
+	return redis.Float64(r.Get(key))
+}
+
+// Get the value of the uint64 type returned by the specified key.
+func (r *Redis) GetUint64(key string) (uint64, error) {
+	return redis.Uint64(r.Get(key))
+}
+
 
 // Do sends a command to the server and returns the received reply.
 func (r *Redis) Do(commandName string, args ...interface{}) (reply interface{}, err error) {
