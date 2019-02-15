@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"bilibili-rear-end/tools/regex"
 	"bilibili-rear-end/network"
+	"bilibili-rear-end/tools/captcha"
+	"bilibili-rear-end/database/nosql/redis"
 )
 
 // Get register captcha.
@@ -18,7 +20,6 @@ func GetRegisterCaptchaHandler(ctx *gin.Context) {
 
 // Get captcha.
 func GetCaptcha(ctx *gin.Context, style int) {
-
 	switch style {
 	case phoneStyle:
 		// validate phone
@@ -32,12 +33,6 @@ func GetCaptcha(ctx *gin.Context, style int) {
 			network.Failure(http.StatusBadRequest, phoneWrongFormate).Response(ctx)
 		}
 
-		// phone captcha
-		phoneVerificationCode := ctx.PostForm("phone_verification_code")
-		if phoneVerificationCode == "" {
-			network.Failure(http.StatusBadRequest, parameterFailure).AppendMessage("phone_verification_code is nil.").Response(ctx)
-		}
-
 	case emailStyle:
 		// validate email address
 		email := ctx.PostForm("email")
@@ -49,24 +44,16 @@ func GetCaptcha(ctx *gin.Context, style int) {
 		if !result {
 			network.Failure(http.StatusBadRequest, emailWrongFormate).Response(ctx)
 		}
-
-		// email address captcha
-		emailVerificationCode := ctx.PostForm("email_verification_code")
-		if emailVerificationCode == "" {
-			network.Failure(http.StatusBadRequest, parameterFailure).AppendMessage("email_verification_code is nil.").Response(ctx)
-		}
+	default:
+		network.Failure(http.StatusBadRequest, parameterFailure).AppendMessage("undefined style").Response(ctx)
 	}
 
-
-	// 查询用户名是否被注册
-	act, err := models.QueryUser(account)
+	capt, err := captcha.GetCaptcha(style, 2)
 	if err != nil {
-		network.Failure(http.StatusInternalServerError, registerFailure).AppendMessage(err.Error()).Response(ctx)
+		network.Failure(http.StatusInternalServerError, failureSendCaptcha).Response(ctx)
 	}
 
-	if act != "" {
+	redis.GetInstance().Set("", capt)
 
-	}
-
-	network.Success(http.StatusOK, network.SUCCESS, none, "").Response(ctx)
+	network.Success(http.StatusOK, getCaptchaSuccess, nil).Response(ctx)
 }

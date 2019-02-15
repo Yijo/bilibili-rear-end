@@ -4,6 +4,8 @@
     <list default="true" id="75a0a078-70ee-4a86-9ec8-b82107d290f0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/database/nosql/redis/redis.go" afterPath="$PROJECT_DIR$/database/nosql/redis/redis.go" />
+      <change beforePath="$PROJECT_DIR$/modual/login/handlers/captchaHandler.go" afterPath="$PROJECT_DIR$/modual/login/handlers/captchaHandler.go" />
+      <change beforePath="$PROJECT_DIR$/modual/login/handlers/resc.go" afterPath="$PROJECT_DIR$/modual/login/handlers/resc.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,48 +16,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="registerHandler.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="registerHandler.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modual/login/handlers/registerHandler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="210">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="redis.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/nosql/redis/redis.go">
+      <file leaf-file-name="captchaHandler.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modual/login/handlers/captchaHandler.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="133" column="19" lean-forward="true" selection-start-line="133" selection-start-column="19" selection-end-line="133" selection-end-column="19" />
-              <folding>
-                <element signature="e#15#125#0" expanded="true" />
-                <element signature="e#138#166#0" expanded="false" />
-                <element signature="e#169#231#0" expanded="false" />
-                <element signature="n#!!block;n#GetRedisConfig#0" expanded="false" />
-                <element signature="n#!!block;n#Init#0" expanded="false" />
-                <element signature="e#872#900#0" expanded="false" />
-                <element signature="e#936#1061#0" expanded="false" />
-                <element signature="e#1126#1172#0" expanded="false" />
-                <element signature="n#!!block;n#GetInstance#0" expanded="false" />
-                <element signature="n#!!block;n#closePool#0" expanded="false" />
-                <element signature="n#!!block;n#Do#0" expanded="false" />
-                <element signature="n#!!block;n#Send#0" expanded="false" />
-                <element signature="n#!!block;n#Flush#0" expanded="false" />
-                <element signature="n#!!block;n#Receive#0" expanded="false" />
-                <element signature="n#!!block;n#Close#0" expanded="false" />
-                <element signature="n#!!block;n#Err#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reply.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../github.com/garyburd/redigo/redis/reply.go">
+      <file leaf-file-name="response.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network/response.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="382" column="28" lean-forward="true" selection-start-line="382" selection-start-column="28" selection-end-line="382" selection-end-column="28" />
+            <state relative-caret-position="211">
+              <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resc.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modual/login/handlers/resc.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="502">
+              <caret line="63" column="29" lean-forward="false" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="captcha.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tools/captcha/captcha.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="59" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -74,6 +79,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>DBWorker</find>
+      <find>byte</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/Cellar/go/1.11.2/libexec" />
@@ -122,18 +128,18 @@
         <option value="$PROJECT_DIR$/modual/login/models/loginModel.go" />
         <option value="$PROJECT_DIR$/database/mysql/mysql.go" />
         <option value="$PROJECT_DIR$/modual/login/models/registerModel.go" />
-        <option value="$PROJECT_DIR$/modual/login/handlers/resc.go" />
         <option value="$PROJECT_DIR$/network/response.go" />
         <option value="$PROJECT_DIR$/tools/captcha/captcha_test.go" />
         <option value="$PROJECT_DIR$/modual/login/handlers/captchaHandler_test.go" />
         <option value="$PROJECT_DIR$/modual/login/handlers/registerHandler.go" />
-        <option value="$PROJECT_DIR$/modual/login/handlers/captchaHandler.go" />
-        <option value="$PROJECT_DIR$/tools/captcha/captcha.go" />
         <option value="$PROJECT_DIR$/modual/login/router.go" />
         <option value="$PROJECT_DIR$/configer/initConfig.go" />
         <option value="$PROJECT_DIR$/configer/app.yml" />
         <option value="$PROJECT_DIR$/database/nosql/redis/redis_test.go" />
         <option value="$PROJECT_DIR$/database/nosql/redis/redis.go" />
+        <option value="$PROJECT_DIR$/tools/captcha/captcha.go" />
+        <option value="$PROJECT_DIR$/modual/login/handlers/resc.go" />
+        <option value="$PROJECT_DIR$/modual/login/handlers/captchaHandler.go" />
       </list>
     </option>
   </component>
@@ -144,8 +150,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1640" />
-    <option name="y" value="23" />
+    <option name="x" value="1613" />
+    <option name="y" value="123" />
     <option name="width" value="1240" />
     <option name="height" value="777" />
   </component>
@@ -168,47 +174,13 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="bilibili-rear-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="bilibili-rear-end" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bilibili-rear-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bilibili-rear-end" type="462c0819:PsiDirectoryNode" />
-              <item name="configer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bilibili-rear-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bilibili-rear-end" type="462c0819:PsiDirectoryNode" />
-              <item name="configer" type="462c0819:PsiDirectoryNode" />
-              <item name="viper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bilibili-rear-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bilibili-rear-end" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bilibili-rear-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bilibili-rear-end" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="mysql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bilibili-rear-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bilibili-rear-end" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="nosql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bilibili-rear-end" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bilibili-rear-end" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="nosql" type="462c0819:PsiDirectoryNode" />
-              <item name="redis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bilibili-rear-end" type="b2602c69:ProjectViewProjectNode" />
@@ -228,11 +200,21 @@
               <item name="login" type="462c0819:PsiDirectoryNode" />
               <item name="handlers" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="bilibili-rear-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bilibili-rear-end" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bilibili-rear-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bilibili-rear-end" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="captcha" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -374,10 +356,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1640" y="23" width="1240" height="777" extended-state="0" />
+    <frame x="1613" y="123" width="1240" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2654424" sideWeight="0.49043062" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26961604" sideWeight="0.49043062" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32844576" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -603,7 +585,7 @@
         <state relative-caret-position="111">
           <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
           <folding>
-            <element signature="e#16#96#0" expanded="true" />
+            <element signature="e#16#96#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -640,37 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/network/response.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="76" column="31" lean-forward="false" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modual/login/handlers/resc.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modual/login/handlers/captchaHandler.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#18#130#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/captcha/captcha.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -728,17 +679,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/nosql/redis/redis.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="133" column="19" lean-forward="true" selection-start-line="133" selection-start-column="19" selection-end-line="133" selection-end-column="19" />
+        <state relative-caret-position="221">
+          <caret line="204" column="2" lean-forward="true" selection-start-line="204" selection-start-column="2" selection-end-line="204" selection-end-column="2" />
           <folding>
-            <element signature="e#15#125#0" expanded="true" />
-            <element signature="e#138#166#0" expanded="false" />
-            <element signature="e#169#231#0" expanded="false" />
+            <element signature="e#15#142#0" expanded="false" />
+            <element signature="e#155#183#0" expanded="false" />
+            <element signature="e#186#248#0" expanded="false" />
             <element signature="n#!!block;n#GetRedisConfig#0" expanded="false" />
             <element signature="n#!!block;n#Init#0" expanded="false" />
-            <element signature="e#872#900#0" expanded="false" />
-            <element signature="e#936#1061#0" expanded="false" />
-            <element signature="e#1126#1172#0" expanded="false" />
+            <element signature="e#889#917#0" expanded="false" />
+            <element signature="e#953#1078#0" expanded="false" />
+            <element signature="e#1143#1189#0" expanded="false" />
             <element signature="n#!!block;n#GetInstance#0" expanded="false" />
             <element signature="n#!!block;n#closePool#0" expanded="false" />
             <element signature="n#!!block;n#Do#0" expanded="false" />
@@ -753,16 +704,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../github.com/garyburd/redigo/redis/reply.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="382" column="28" lean-forward="true" selection-start-line="382" selection-start-column="28" selection-end-line="382" selection-end-column="28" />
+        <state relative-caret-position="96">
+          <caret line="450" column="47" lean-forward="false" selection-start-line="450" selection-start-column="47" selection-end-line="450" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modual/login/handlers/registerHandler.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/captcha/captcha.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="59" lean-forward="false" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network/response.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modual/login/handlers/resc.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="63" column="29" lean-forward="false" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modual/login/handlers/captchaHandler.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="30" />
           <folding />
         </state>
       </provider>
